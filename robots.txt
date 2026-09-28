@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://main--rockwell-ref-to-repli--harishreddyct.aem.live/sitemap.xml

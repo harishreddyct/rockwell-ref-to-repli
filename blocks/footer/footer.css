@@ -1,0 +1,110 @@
+footer {
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+  font-family: var(--font-body);
+}
+
+footer .footer-inner {
+  max-width: var(--wrapper-width);
+  margin: 0 auto;
+  padding: var(--spacing-l) 1.25rem var(--spacing-m);
+}
+
+/* --- link columns --- */
+footer .footer-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-m);
+}
+
+footer .footer-col h2,
+footer .footer-col h3,
+footer .footer-col h4 {
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--spacing-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+footer .footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer-col li {
+  margin: 0 0 0.5rem;
+}
+
+footer .footer-col a {
+  color: rgb(255 255 255 / 85%);
+  text-decoration: none;
+  font-size: var(--font-size-small);
+}
+
+footer .footer-col a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+/* --- bottom / legal bar --- */
+footer .footer-bottom {
+  margin-top: var(--spacing-l);
+  padding-top: var(--spacing-m);
+  border-top: 1px solid rgb(255 255 255 / 20%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  font-size: var(--font-size-small);
+  color: rgb(255 255 255 / 75%);
+}
+
+footer .footer-bottom a {
+  color: rgb(255 255 255 / 85%);
+  text-decoration: none;
+}
+
+footer .footer-bottom a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+footer .footer-bottom ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+footer .footer-bottom .icon {
+  width: 22px;
+  height: 22px;
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  footer .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-l) var(--spacing-m);
+  }
+}
+
+@media (min-width: 960px) {
+  footer .footer-inner {
+    padding: var(--spacing-xl) 2rem var(--spacing-l);
+  }
+
+  footer .footer-columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  footer .footer-bottom {
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

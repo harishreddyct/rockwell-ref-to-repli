@@ -1,0 +1,77 @@
+.hero-banner {
+  display: block;
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+}
+
+.hero-banner > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  max-width: var(--wrapper-wide);
+  margin: 0 auto;
+  min-height: 22rem;
+}
+
+.hero-banner-image {
+  order: -1;
+}
+
+.hero-banner-image picture,
+.hero-banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-banner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--spacing-l) 1.25rem;
+}
+
+.hero-banner-content h1,
+.hero-banner-content h2 {
+  color: var(--color-white);
+  margin-top: 0;
+}
+
+.hero-banner-content p {
+  color: rgb(255 255 255 / 90%);
+  font-size: 1.125rem;
+  max-width: 42rem;
+}
+
+.hero-banner-content .button-wrapper {
+  margin-bottom: 0;
+}
+
+/* text-only banner keeps content centered within the wrapper gutter */
+.hero-banner--text-only .hero-banner-content {
+  max-width: var(--wrapper-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .hero-banner > div {
+    grid-template-columns: 1fr 1fr;
+    min-height: 28.125rem;
+  }
+
+  .hero-banner-image {
+    order: 0;
+  }
+
+  .hero-banner-content {
+    padding: var(--spacing-xl) 2rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero-banner-content {
+    padding: var(--spacing-xl) 3.5rem;
+  }
+}

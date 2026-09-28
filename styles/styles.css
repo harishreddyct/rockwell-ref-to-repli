@@ -1,0 +1,276 @@
+/*
+ * Global, mobile-first styles needed for first paint. Below-the-fold rules
+ * belong in lazy-styles.css instead — see AGENTS.md.
+ *
+ * Design tokens are real values read directly from rockwellautomation.com's
+ * shipped stylesheet (site.bundle.css), not guessed: Barlow type family,
+ * brand blue #003e7e, primary-action blue #1968b3, orange accent #f58025,
+ * charcoal #2d2d2d, and the neutral grays. See docs/component-registry.md.
+ */
+
+:root {
+  /* color — from site.bundle.css --calc-* tokens */
+  --color-text: #2d2d2d;
+  --color-text-muted: #6d6e71;
+  --color-bg: #fff;
+  --color-bg-fog: #efefef;
+  --color-bg-platinum: #e5e6e9;
+  --color-border: #ccc;
+  --color-brand-blue: #003e7e;
+  --color-brand-blue-mid: #2a79c4;
+  --color-action: #1968b3;
+  --color-action-hover: #0053a1;
+  --color-accent: #f58025;
+  --color-dark: #1a1a1a;
+  --color-charcoal: #2d2d2d;
+  --color-white: #fff;
+  --color-focus: #1968b3;
+
+  /* type */
+  --font-body: barlow, arial, 'Helvetica Neue', helvetica, sans-serif;
+  --font-heading: barlow, arial, 'Helvetica Neue', helvetica, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-label: 0.875rem;
+  --font-size-h1: 2rem;
+  --font-size-h2: 1.75rem;
+  --font-size-h3: 1.375rem;
+  --font-size-h4: 1.125rem;
+  --line-height-body: 1.5;
+  --line-height-heading: 1.2;
+
+  /* layout */
+  --wrapper-width: 1200px;
+  --wrapper-wide: 100rem;
+  --spacing-xs: 0.5rem;
+  --spacing-s: 1rem;
+  --spacing-m: 1.5rem;
+  --spacing-l: 2.5rem;
+  --spacing-xl: 4rem;
+
+  --nav-height: 4rem;
+  --utility-bar-height: 2.25rem;
+}
+
+@media (min-width: 960px) {
+  :root {
+    --font-size-h1: 2.75rem;
+    --font-size-h2: 2.25rem;
+    --font-size-h3: 1.625rem;
+    --nav-height: 4.5rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + var(--utility-bar-height));
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  display: none;
+}
+
+body.appear {
+  display: block;
+}
+
+header {
+  min-height: calc(var(--nav-height) + var(--utility-bar-height));
+}
+
+main {
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: var(--line-height-heading);
+  margin: 1.5rem 0 0.75rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-blue);
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4, h5, h6 { font-size: var(--font-size-h4); }
+
+p, ul, ol {
+  margin: 0 0 var(--spacing-s);
+}
+
+a {
+  color: var(--color-action);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-action-hover);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+img, picture, svg {
+  max-width: 100%;
+  display: block;
+}
+
+.icon img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/*
+ * Buttons / CTAs. The reference's <ra-button> renders as an uppercase pill
+ * with a 4px radius; primary is the action-blue fill, secondary is an
+ * outlined variant, tertiary is a plain underlined text link. decorateButtons
+ * in aem.js maps EM/STRONG-wrapped links to these classes.
+ */
+button, .button {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border-radius: 4px;
+  padding: 6px 24px;
+  border: 0;
+  background: var(--color-action);
+  color: var(--color-white);
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease-out;
+}
+
+.button:hover, button:hover {
+  background: var(--color-action-hover);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--color-action);
+  border: 2px solid var(--color-action);
+  padding: 4px 22px;
+}
+
+.button.secondary:hover {
+  background: var(--color-action);
+  color: var(--color-white);
+}
+
+.button-wrapper {
+  margin: var(--spacing-m) 0;
+}
+
+/*
+ * Section layout. Content sits in a centered 1200px wrapper with a
+ * viewport-scaling side gutter so it never hugs the screen edge on narrow
+ * widths (the gutter grows across the breakpoint tiers, matching the
+ * reference's generic-container behavior).
+ */
+.section {
+  padding: var(--spacing-l) 1.25rem;
+  display: flow-root;
+}
+
+.section > div {
+  max-width: var(--wrapper-width);
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--spacing-l) 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section {
+    padding: var(--spacing-xl) 2rem;
+  }
+}
+
+/* a page's trailing metadata block leaves an empty section once the platform
+   extracts it into <head> — collapse it instead of a blank padded strip */
+.section:empty {
+  display: none;
+  padding: 0;
+}
+
+/* full-bleed blocks (hero-banner, animated-header) escape the section gutter */
+.section:has(> .hero-banner-wrapper),
+.section:has(> .animated-header-wrapper) {
+  padding: 0;
+}
+
+.section:has(> .hero-banner-wrapper) > div,
+.section:has(> .animated-header-wrapper) > div {
+  max-width: none;
+}
+
+/* generic-container background variants (reference generic-container__bg-*) */
+.section.bg-light-gray {
+  background: var(--color-bg-fog);
+}
+
+.section.bg-platinum {
+  background: var(--color-bg-platinum);
+}
+
+.section.bg-dark {
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+}
+
+.section.bg-dark h1,
+.section.bg-dark h2,
+.section.bg-dark h3,
+.section.bg-dark a {
+  color: var(--color-white);
+}
+
+.section.narrow > div {
+  max-width: 800px;
+}
+
+/* skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+  padding: 0.75em 1.25em;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  left: var(--spacing-s);
+  top: var(--spacing-s);
+}

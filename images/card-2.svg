@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" role="img" aria-label="Product placeholder">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f58025"/>
+      <stop offset="1" stop-color="#003e7e"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="420" fill="url(#g)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1">
+    <path d="M0 277.2 L640 105"/>
+    <path d="M0 357 L640 189"/>
+    <circle cx="512" cy="126" r="92.4"/>
+  </g>
+  <text x="50%" y="50%" fill="#ffffff" fill-opacity="0.9" font-family="Barlow, Arial, sans-serif" font-size="35" font-weight="700" text-anchor="middle" dominant-baseline="middle">Product</text>
+</svg>

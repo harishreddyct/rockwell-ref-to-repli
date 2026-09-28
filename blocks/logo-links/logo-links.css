@@ -1,0 +1,40 @@
+.logo-links-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-m);
+  align-items: center;
+}
+
+.logo-links-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-s);
+}
+
+.logo-links-item img {
+  max-height: 56px;
+  width: auto;
+  filter: grayscale(100%);
+  opacity: 0.75;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.logo-links-item a:hover img,
+.logo-links-item img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .logo-links-strip {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .logo-links-strip {
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--spacing-l);
+  }
+}

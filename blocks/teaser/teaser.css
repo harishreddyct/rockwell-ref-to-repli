@@ -1,0 +1,41 @@
+.teaser > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-m);
+  align-items: center;
+}
+
+.teaser-image img,
+.teaser-image picture {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.teaser-content h2,
+.teaser-content h3 {
+  margin-top: 0;
+}
+
+.teaser-content > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .teaser > div {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-l);
+  }
+
+  .teaser.reverse .teaser-image {
+    order: 1;
+  }
+}
+
+/* text-only teaser reads as a centered call-to-action band */
+.teaser--text-only > div {
+  grid-template-columns: 1fr;
+  text-align: center;
+  justify-items: center;
+}

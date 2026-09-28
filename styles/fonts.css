@@ -1,0 +1,8 @@
+/*
+ * Fonts. The reference ships a licensed "Barlow" webfont family
+ * (BarlowRegular/Medium/Bold, measured directly from site.bundle.css's
+ * @font-face rules). Barlow is an open-license Google Font, so it's loaded
+ * from Google Fonts (linked in head.html rather than @import'd here, so
+ * first paint doesn't wait on this file's own round-trip) with the same
+ * weights the reference uses (400 / 500 / 700). See docs/component-registry.md.
+ */

@@ -1,0 +1,15 @@
+.error-section {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.error-section h1 {
+  font-size: var(--font-size-h1);
+}
+
+.error-back.hidden {
+  display: none;
+}

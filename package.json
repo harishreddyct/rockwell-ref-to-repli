@@ -1,0 +1,25 @@
+{
+  "name": "rockwell-ref-to-repli",
+  "version": "1.0.0",
+  "description": "Rockwell Automation en-IN visual/structural replication — an Adobe Edge Delivery Services site (code only; content authored in DA, see AGENTS.md)",
+  "license": "Apache-2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint:js": "eslint .",
+    "lint:css": "stylelint '**/*.css'",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:fix": "eslint . --fix && stylelint '**/*.css' --fix",
+    "serve": "aem up --url https://main--rockwell-ref-to-repli--harishreddyct.aem.page",
+    "lighthouse": "node tools/lighthouse/run.mjs",
+    "visual-diff": "node tools/visual-validation/run.mjs"
+  },
+  "devDependencies": {
+    "@adobe/aem-cli": "16.21.21",
+    "eslint": "8.57.0",
+    "lighthouse": "12.2.1",
+    "playwright": "1.47.2",
+    "stylelint": "16.9.0",
+    "stylelint-config-standard": "36.0.1"
+  }
+}

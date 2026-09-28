@@ -1,0 +1,34 @@
+.product-experience > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-m);
+  align-items: center;
+}
+
+.product-experience-media img,
+.product-experience-media picture {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.product-experience-content h2,
+.product-experience-content h3 {
+  margin-top: 0;
+}
+
+.product-experience-content > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .product-experience > div {
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .product-experience.reverse .product-experience-media {
+    order: 1;
+  }
+}

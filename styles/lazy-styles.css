@@ -1,0 +1,32 @@
+/*
+ * Below-the-fold styles, fetched by scripts.js after the eager phase rather
+ * than linked in <head>, so they don't block first paint. Rules that are only
+ * needed once the user scrolls (or that style late-loading blocks) live here.
+ */
+
+/* generic spacing helper for content that follows a block within a section */
+.section > .default-content-wrapper + .default-content-wrapper {
+  margin-top: var(--spacing-m);
+}
+
+/* prose treatment for article / narrow content bodies */
+.section.narrow p {
+  line-height: 1.7;
+  margin-bottom: var(--spacing-s);
+}
+
+.section.narrow blockquote {
+  font-size: var(--font-size-h3);
+  font-family: var(--font-heading);
+  color: var(--color-brand-blue);
+  border-left: 4px solid var(--color-accent);
+  margin: var(--spacing-l) 0;
+  padding-left: var(--spacing-m);
+  font-style: normal;
+}
+
+/* authored per-page bottom divider between last content and footer */
+.section.separator > div:last-child {
+  padding-bottom: var(--spacing-l);
+  border-bottom: 1px solid var(--color-border);
+}

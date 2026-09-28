@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="480" height="480" role="img" aria-label="Drive placeholder">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f58025"/>
+      <stop offset="1" stop-color="#003e7e"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="480" fill="url(#g)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1">
+    <path d="M0 316.8 L480 120"/>
+    <path d="M0 408 L480 216"/>
+    <circle cx="384" cy="144" r="105.6"/>
+  </g>
+  <text x="50%" y="50%" fill="#ffffff" fill-opacity="0.9" font-family="Barlow, Arial, sans-serif" font-size="40" font-weight="700" text-anchor="middle" dominant-baseline="middle">Drive</text>
+</svg>

@@ -1,0 +1,100 @@
+.generic-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: var(--spacing-l);
+}
+
+.generic-filter-chip {
+  background: transparent;
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  text-transform: none;
+  cursor: pointer;
+}
+
+.generic-filter-chip[aria-pressed='true'] {
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+  border-color: var(--color-brand-blue);
+}
+
+.generic-filter-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-m);
+}
+
+.generic-filter-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.generic-filter-card[hidden] {
+  display: none;
+}
+
+.generic-filter-tag {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.generic-filter-image img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.generic-filter-body {
+  padding: var(--spacing-s);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.generic-filter-body h2,
+.generic-filter-body h3,
+.generic-filter-body h4 {
+  margin: 0;
+  font-size: var(--font-size-h4);
+}
+
+.generic-filter-body p {
+  margin: 0;
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .generic-filter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .generic-filter-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-l);
+  }
+}
