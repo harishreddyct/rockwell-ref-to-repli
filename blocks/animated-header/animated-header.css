@@ -9,7 +9,7 @@
 
 .animated-header > div {
   display: grid;
-  grid-template-areas: 'stack';
+  grid-template: 'stack' / minmax(0, 1fr);
   width: 100%;
 }
 

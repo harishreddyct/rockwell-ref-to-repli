@@ -1,6 +1,6 @@
 .teaser > div {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-m);
   align-items: center;
 }
@@ -24,7 +24,7 @@
 
 @media (min-width: 768px) {
   .teaser > div {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--spacing-l);
   }
 
@@ -35,7 +35,7 @@
 
 /* text-only teaser reads as a centered call-to-action band */
 .teaser--text-only > div {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   text-align: center;
   justify-items: center;
 }

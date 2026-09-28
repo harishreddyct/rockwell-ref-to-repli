@@ -16,7 +16,13 @@ reference-to-implementation mapping stays legible.
   `#2d2d2d`, black `#1a1a1a`, fog `#efefef`, platinum `#e5e6e9`, border `#ccc`.
   Type family: **Barlow** (Regular 400 / Medium 500 / Bold 700).
 - **Reference breakpoints** are 768/1024/1201px; per the skill these are mapped
-  onto this project's fixed 768/960/1200 mobile-first scale.
+  onto this project's fixed 768/960/1200 mobile-first scale. Note the middle tier
+  is the one real divergence: between 960px and 1023px this build shows its
+  desktop layout while the reference is still on tablet.
+- **Sticky header height** is one token, `--header-height` (`styles/styles.css`):
+  one nav row on mobile, nav + utility bar from 960px up. `header`'s reserved
+  `min-height`, `scroll-padding-top` and `.sub-nav-wrapper`'s sticky `top` all
+  read it, so they can't drift apart.
 
 ## Not reproduced (deliberate)
 

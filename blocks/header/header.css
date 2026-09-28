@@ -15,7 +15,7 @@ header nav {
     'hamburger brand'
     'sections sections'
     'tools tools';
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   padding: 0 1rem;
   min-height: var(--nav-height);
@@ -65,15 +65,24 @@ header .nav-hamburger .icon-close { display: none; }
 header nav[aria-expanded='true'] .nav-hamburger .icon-menu { display: none; }
 header nav[aria-expanded='true'] .nav-hamburger .icon-close { display: inline-flex; }
 
-/* drawer content hidden on mobile until expanded */
-header .nav-sections,
-header .nav-tools {
+/* drawer content hidden on mobile until expanded. The grid areas must be
+   assigned here, not only at desktop: without them these two auto-place into
+   row 2 side by side instead of stacking into their own full-width rows. */
+header .nav-sections {
+  grid-area: sections;
   display: none;
 }
 
 header nav[aria-expanded='true'] .nav-sections,
 header nav[aria-expanded='true'] .nav-tools {
   display: block;
+}
+
+/* an open drawer must stay reachable on short viewports (landscape phones),
+   since body scrolling is locked while it is open */
+header nav[aria-expanded='true'] {
+  max-height: 100dvh;
+  overflow-y: auto;
 }
 
 header .nav-sections ul,
@@ -124,6 +133,8 @@ header .nav-sections .nav-drop[aria-expanded='true'] > a::after {
 }
 
 header .nav-tools {
+  grid-area: tools;
+  display: none;
   background: var(--color-bg-fog);
   margin: 0 -1rem;
   padding: 0 1rem;
@@ -136,13 +147,14 @@ body.nav-open {
 /* --- desktop --- */
 @media (min-width: 960px) {
   header nav {
-    grid-template-areas:
-      'brand tools'
-      'brand sections';
-    grid-template-columns: auto 1fr;
+    grid-template:
+      'brand tools' var(--utility-bar-height)
+      'brand sections' var(--nav-height)
+      / auto minmax(0, 1fr);
     column-gap: 2rem;
     padding: 0 2rem;
     align-items: center;
+    min-height: var(--header-height);
   }
 
   header .nav-brand {

@@ -34,9 +34,10 @@ function decorateDropdowns(navSections, nav) {
         closeAllDropdowns(nav);
         li.setAttribute('aria-expanded', open ? 'false' : 'true');
       };
-      // desktop: click the top-level label toggles its panel
+      // clicking the top-level label toggles its panel: a flyout on desktop, an
+      // accordion row in the mobile drawer. Each sub-list leads with its own
+      // "All …" link, so intercepting the parent link costs no destination.
       li.addEventListener('click', (e) => {
-        if (!MQ.matches) return;
         if (e.target.closest('ul ul')) return;
         e.preventDefault();
         toggle();

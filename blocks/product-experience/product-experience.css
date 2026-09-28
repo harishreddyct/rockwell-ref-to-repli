@@ -1,6 +1,6 @@
 .product-experience > div {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-m);
   align-items: center;
 }
@@ -24,7 +24,7 @@
 
 @media (min-width: 768px) {
   .product-experience > div {
-    grid-template-columns: 1.1fr 1fr;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
     gap: var(--spacing-xl);
   }
 

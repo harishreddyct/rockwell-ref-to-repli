@@ -53,6 +53,10 @@
 
   --nav-height: 4rem;
   --utility-bar-height: 2.25rem;
+
+  /* total sticky-header height: one nav row on mobile, nav + utility bar from
+     960px up. Reserved by header, and offset from by scroll anchors and sub-nav. */
+  --header-height: var(--nav-height);
 }
 
 @media (min-width: 960px) {
@@ -61,6 +65,7 @@
     --font-size-h2: 2.25rem;
     --font-size-h3: 1.625rem;
     --nav-height: 4.5rem;
+    --header-height: calc(var(--nav-height) + var(--utility-bar-height));
   }
 }
 
@@ -70,7 +75,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--nav-height) + var(--utility-bar-height));
+  scroll-padding-top: var(--header-height);
 }
 
 body {
@@ -91,7 +96,7 @@ body.appear {
 }
 
 header {
-  min-height: calc(var(--nav-height) + var(--utility-bar-height));
+  min-height: var(--header-height);
 }
 
 main {
@@ -138,6 +143,45 @@ img, picture, svg {
 .icon img {
   width: 1.5rem;
   height: 1.5rem;
+}
+
+/*
+ * decorateIcons injects each icon as <img src="/icons/{name}.svg">. An <img>
+ * renders in its own document, so a currentColor SVG can never see the page's
+ * `color` and always paints black — which made the footer's social icons
+ * invisible on the blue background. Paint the single-color icons as a mask over
+ * the current color instead, so every `.icon { color: … }` rule actually works.
+ * icon-logo is multi-color and keeps its <img>. Register new icons below.
+ */
+.icon-arrow-right { --icon-src: url('/icons/arrow-right.svg'); }
+.icon-chevron-down { --icon-src: url('/icons/chevron-down.svg'); }
+.icon-chevron-right { --icon-src: url('/icons/chevron-right.svg'); }
+.icon-close { --icon-src: url('/icons/close.svg'); }
+.icon-facebook { --icon-src: url('/icons/facebook.svg'); }
+.icon-instagram { --icon-src: url('/icons/instagram.svg'); }
+.icon-linkedin { --icon-src: url('/icons/linkedin.svg'); }
+.icon-menu { --icon-src: url('/icons/menu.svg'); }
+.icon-play { --icon-src: url('/icons/play.svg'); }
+.icon-search { --icon-src: url('/icons/search.svg'); }
+.icon-x { --icon-src: url('/icons/x.svg'); }
+.icon-youtube { --icon-src: url('/icons/youtube.svg'); }
+
+/* kept to a single class of specificity so a block's own `.foo-icon { width }`
+   still wins; an icon with no --icon-src above simply keeps its <img> */
+:is(.icon-arrow-right, .icon-chevron-down, .icon-chevron-right, .icon-close,
+.icon-facebook, .icon-instagram, .icon-linkedin, .icon-menu, .icon-play,
+.icon-search, .icon-x, .icon-youtube) {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: currentcolor;
+  mask: var(--icon-src) center / contain no-repeat;
+}
+
+:is(.icon-arrow-right, .icon-chevron-down, .icon-chevron-right, .icon-close,
+.icon-facebook, .icon-instagram, .icon-linkedin, .icon-menu, .icon-play,
+.icon-search, .icon-x, .icon-youtube) img {
+  display: none;
 }
 
 /*

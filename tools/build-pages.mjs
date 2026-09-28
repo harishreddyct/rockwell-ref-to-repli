@@ -130,8 +130,10 @@ function footerFragment() {
     ['Insights', [a('#', 'Automation Today'), a('/company/news', 'Blogs'), a('/company/news', 'Case Studies'), a('#', 'Podcasts'), a('#', 'Analyst Research')]],
   ];
   const colHtml = columns.map(([title, links]) => `${h(3, title)}${ul(links)}`).join('');
-  const social = `<p>${['linkedin', 'facebook', 'x', 'youtube', 'instagram']
-    .map((s) => `<span class="icon icon-${s}"></span>`).join(' ')}</p>`;
+  // each icon is decorative (decorateIcons renders it with alt=""), so the link
+  // carries the accessible name
+  const social = `<p>${[['linkedin', 'LinkedIn'], ['facebook', 'Facebook'], ['x', 'X'], ['youtube', 'YouTube'], ['instagram', 'Instagram']]
+    .map(([s, name]) => `<a href="#" aria-label="${name}"><span class="icon icon-${s}"></span></a>`).join(' ')}</p>`;
   const legal = ul([
     a('#', 'IN | EN'),
     a('#', 'Legal Notices'),

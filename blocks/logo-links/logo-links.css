@@ -1,6 +1,6 @@
 .logo-links-strip {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--spacing-m);
   align-items: center;
 }
@@ -28,13 +28,13 @@
 
 @media (min-width: 768px) {
   .logo-links-strip {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 960px) {
   .logo-links-strip {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: var(--spacing-l);
   }
 }

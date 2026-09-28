@@ -6,7 +6,7 @@
 
 .hero-banner > div {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   align-items: stretch;
   max-width: var(--wrapper-wide);
   margin: 0 auto;
@@ -57,7 +57,7 @@
 
 @media (min-width: 768px) {
   .hero-banner > div {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     min-height: 28.125rem;
   }
 

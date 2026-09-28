@@ -80,7 +80,16 @@ CSS custom properties in `styles/styles.css`: brand blue `#003e7e`, action blue
 - No component-scoped frameworks. If a block needs interactivity, write scoped
   vanilla JS in that block's own `{name}.js`.
 - Prefer semantic HTML and CSS-only interaction (`:hover`, `:focus-within`,
-  `<details>`) over JS wherever it can do the same job.
+ `<details>`) over JS wherever it can do the same job.
+- Size grid tracks as `minmax(0, 1fr)`, never bare `1fr`. A bare `1fr` keeps an
+ automatic minimum equal to its content's intrinsic width, so a track holding a
+ 960px placeholder image or a non-wrapping flex row pushes past the viewport.
+ Give flex children that hold prose `min-width: 0` for the same reason.
+- A new single-color icon in `icons/` must be registered in the `--icon-src` list
+ in `styles/styles.css`. `decorateIcons` renders icons as `<img>`, which can't
+ inherit `color`, so they're painted as masks over `currentcolor` instead —
+ that's what makes `.some-icon { color: … }` work. Unregistered icons fall back
+ to a black `<img>`.
 - Every block gets a row in `docs/component-registry.md`; every page gets a row
   in `docs/page-registry.md`. Update both as you go.
 - Run `npm run lint` before considering a change done.

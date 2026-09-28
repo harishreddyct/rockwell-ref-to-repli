@@ -13,7 +13,7 @@ footer .footer-inner {
 /* --- link columns --- */
 footer .footer-columns {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-m);
 }
 
@@ -86,9 +86,19 @@ footer .footer-bottom .icon {
   color: var(--color-white);
 }
 
+/* the social row is the only link list in a <p> here; size the links to a
+   44px touch target rather than the 22px icon */
+footer .footer-bottom p a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+}
+
 @media (min-width: 768px) {
   footer .footer-columns {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--spacing-l) var(--spacing-m);
   }
 }
@@ -99,7 +109,7 @@ footer .footer-bottom .icon {
   }
 
   footer .footer-columns {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   footer .footer-bottom {
