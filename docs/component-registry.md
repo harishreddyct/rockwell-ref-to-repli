@@ -48,7 +48,7 @@ reference-to-implementation mapping stays legible.
 | Block | Reference name | Description | Interactive | Used by |
 | --- | --- | --- | --- | --- |
 | `header` | (client-rendered nav) | Utility bar + primary nav (Products, Capabilities, Industries, Support, Company) + search/region/account; sticky, mobile drawer | JS (drawer, sticky) | all pages |
-| `footer` | (client-rendered) | 8-column link footer (Company, News & Events, Trending Topics, Training, PartnerNetwork, Our Brands, Contact Us, Insights) + legal bar + social | no | all pages |
+| `footer` | (client-rendered) | 8-column link footer (Company, News & Events, Trending Topics, Training, PartnerNetwork, Our Brands, Contact Us, Insights) + legal bar + social; columns use `<details>`/`<summary>` for accordion behavior on mobile/tablet (< 960px), forced open on desktop | CSS/native | all pages |
 | `hero-banner` | `hero-banner` | Page banner: 2-col image/text grid (image + title/subtitle/CTA), stacks on mobile | no | 16/16 |
 | `breadcrumb` | `breadcrumb` | Breadcrumb trail (div-rows, rebuilt to `<ol>`) | no | 15/16 |
 | `teaser` | `teaser` | Image + heading + text + CTA promo unit | no | 11 |

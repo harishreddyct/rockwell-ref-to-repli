@@ -14,7 +14,10 @@ async function fetchFooter() {
   return wrapper;
 }
 
-/** Groups each heading and its following list into a .footer-col. */
+/**
+ * Groups each heading and its following list into a .footer-col wrapped in
+ * <details><summary> for mobile/tablet accordion behavior (open by default).
+ */
 function buildColumns(source) {
   const cols = document.createElement('div');
   cols.className = 'footer-columns';
@@ -22,13 +25,18 @@ function buildColumns(source) {
   headings.forEach((h) => {
     // capture the heading's following list before re-parenting the heading
     const next = h.nextElementSibling;
-    const col = document.createElement('div');
-    col.className = 'footer-col';
-    col.append(h);
+    const details = document.createElement('details');
+    details.className = 'footer-col';
+    details.open = true; // open by default; CSS forces open on desktop
+
+    const summary = document.createElement('summary');
+    summary.append(h);
+    details.append(summary);
+
     if (next && (next.tagName === 'UL' || next.tagName === 'OL')) {
-      col.append(next);
+      details.append(next);
     }
-    cols.append(col);
+    cols.append(details);
   });
   return cols.children.length ? cols : null;
 }

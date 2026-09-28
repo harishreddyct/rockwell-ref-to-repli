@@ -17,20 +17,54 @@ footer .footer-columns {
   gap: var(--spacing-m);
 }
 
+footer .footer-col {
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
+  padding-bottom: var(--spacing-xs);
+}
+
+footer .footer-col summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+/* custom disclosure triangle using ::after chevron */
+footer .footer-col summary::after {
+  content: '';
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: currentcolor;
+  mask: url('/icons/chevron-down.svg') center / contain no-repeat;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+footer .footer-col[open] summary::after {
+  transform: rotate(180deg);
+}
+
+/* hide default webkit/firefox disclosure triangle */
+footer .footer-col summary::-webkit-details-marker {
+  display: none;
+}
+
 footer .footer-col h2,
 footer .footer-col h3,
 footer .footer-col h4 {
   color: var(--color-white);
   font-size: 1rem;
   font-weight: var(--font-weight-bold);
-  margin: 0 0 var(--spacing-xs);
+  margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 
 footer .footer-col ul {
   list-style: none;
-  margin: 0;
+  margin: var(--spacing-xs) 0 0;
   padding: 0;
 }
 
@@ -110,6 +144,21 @@ footer .footer-bottom p a {
 
   footer .footer-columns {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* force accordions open and hide disclosure UI on desktop */
+  footer .footer-col {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  footer .footer-col summary {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  footer .footer-col summary::after {
+    display: none;
   }
 
   footer .footer-bottom {
