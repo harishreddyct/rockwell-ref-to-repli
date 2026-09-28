@@ -15,6 +15,7 @@ export default function decorate(block) {
   rows.forEach((row) => {
     const link = row.querySelector('a');
     if (link) {
+      link.classList.remove('button', 'primary', 'secondary');
       const li = document.createElement('li');
       const arrow = document.createElement('span');
       arrow.className = 'icon icon-arrow-right';

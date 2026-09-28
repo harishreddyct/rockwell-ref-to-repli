@@ -13,6 +13,7 @@ export default function decorate(block) {
     const li = document.createElement('li');
     const link = row.querySelector('a');
     const isLast = i === rows.length - 1;
+    if (link) link.classList.remove('button', 'primary', 'secondary');
     if (link && !isLast) {
       li.append(link);
     } else {

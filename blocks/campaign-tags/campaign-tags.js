@@ -1,3 +1,5 @@
+import { labelGenericLink } from '../content-tile/content-tile.js';
+
 /**
  * campaign-tags — the home page's filterable campaign card row. Each authored
  * row is one campaign: the first cell is its tag, the rest are the card content
@@ -27,6 +29,7 @@ export default function decorate(block) {
         : 'campaign-tags-body';
       card.append(cell);
     });
+    labelGenericLink(card);
     cards.push(card);
   });
 

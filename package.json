@@ -6,6 +6,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "start": "node tools/serve.js",
+    "build:pages": "node tools/build-pages.mjs",
     "lint:js": "eslint .",
     "lint:css": "stylelint '**/*.css'",
     "lint": "npm run lint:js && npm run lint:css",

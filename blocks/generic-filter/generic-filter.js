@@ -35,7 +35,7 @@ export default function decorate(block) {
 
   const chips = document.createElement('div');
   chips.className = 'generic-filter-chips';
-  chips.setAttribute('role', 'tablist');
+  chips.setAttribute('aria-label', 'Filter items by category');
 
   const makeChip = (label, value, active) => {
     const btn = document.createElement('button');

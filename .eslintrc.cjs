@@ -14,7 +14,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['tools/**/*.mjs'],
+      files: ['tools/**/*.js', 'tools/**/*.mjs'],
       env: {
         node: true,
         browser: false,

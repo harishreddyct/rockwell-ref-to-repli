@@ -1,3 +1,5 @@
+import { labelGenericLink } from '../content-tile/content-tile.js';
+
 /**
  * company-news — the home page's news/results highlight row. Each authored row
  * is one news item: an optional image, a title and a summary/link. Rendered as a
@@ -16,6 +18,7 @@ export default function decorate(block) {
         : 'company-news-body';
       card.append(cell);
     });
+    labelGenericLink(card);
     list.append(card);
   });
 

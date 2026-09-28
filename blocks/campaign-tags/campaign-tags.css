@@ -20,7 +20,7 @@
 
 .campaign-tags-chip[aria-pressed='true'] {
   background: var(--color-accent);
-  color: var(--color-white);
+  color: var(--color-dark);
   border-color: var(--color-accent);
 }
 

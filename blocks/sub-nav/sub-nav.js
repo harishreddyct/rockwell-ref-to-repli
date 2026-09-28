@@ -39,6 +39,7 @@ export default function decorate(block) {
   rows.forEach((row) => {
     const a = row.querySelector('a');
     if (!a) return;
+    a.classList.remove('button', 'primary', 'secondary');
     const li = document.createElement('li');
     li.append(a);
     ul.append(li);
