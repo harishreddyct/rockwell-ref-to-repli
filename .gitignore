@@ -5,3 +5,7 @@ node_modules/
 .claude/
 tools/visual-validation/output/
 tools/lighthouse/output/
+
+# Generated page content. It is authored in Document Authoring, never versioned
+# here (see AGENTS.md); `npm run build:pages` emits it for the local dev server.
+tools/preview/

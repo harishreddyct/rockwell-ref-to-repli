@@ -21,7 +21,8 @@ import { dirname, join } from 'node:path';
 
 const ORG = 'harishreddyct';
 const REPO = 'rockwell-ref-to-repli';
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+// reads what tools/build-pages.mjs emitted, so run that first
+const PREVIEW = join(dirname(fileURLToPath(import.meta.url)), 'preview');
 const TOKEN = process.env.DA_TOKEN;
 
 if (!TOKEN) {
@@ -78,7 +79,7 @@ async function trigger(action, path) {
 async function run() {
   for (const [route, file] of Object.entries(ROUTES)) {
     const isFragment = route === '/nav' || route === '/footer';
-    const html = await readFile(join(ROOT, file), 'utf8');
+    const html = await readFile(join(PREVIEW, file), 'utf8');
     const daPath = route === '/' ? '/index' : route;
     // eslint-disable-next-line no-await-in-loop
     const put = await putSource(daPath, toDaDocument(html, isFragment));

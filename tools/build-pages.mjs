@@ -7,13 +7,16 @@
  * footer blocks fetch. Content (titles, descriptions, copy) mirrors
  * rockwellautomation.com/en-in; imagery is placeholder SVGs.
  *
+ * Output goes to tools/preview/ — a gitignored build directory, so generated
+ * page content never lands in the versioned repo root (see AGENTS.md).
+ *
  * Run: node tools/build-pages.mjs
  */
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const OUT = join(dirname(fileURLToPath(import.meta.url)), 'preview');
 
 /* ---------- authoring-HTML helpers ---------- */
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -603,12 +606,13 @@ function routeToFile(route) {
 }
 
 pages.forEach((pg) => {
-  const file = join(ROOT, routeToFile(pg.route));
+  const file = join(OUT, routeToFile(pg.route));
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, pageShell(pg));
 });
 
-writeFileSync(join(ROOT, 'nav.plain.html'), navFragment());
-writeFileSync(join(ROOT, 'footer.plain.html'), footerFragment());
+mkdirSync(OUT, { recursive: true });
+writeFileSync(join(OUT, 'nav.plain.html'), navFragment());
+writeFileSync(join(OUT, 'footer.plain.html'), footerFragment());
 
 process.stdout.write(`Generated ${pages.length} pages + nav + footer fragments\n`);

@@ -14,6 +14,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// generated page content lives in the gitignored build dir; code assets
+// (styles, scripts, blocks, icons, images) are served from the repo root
+const PREVIEW = path.join(ROOT, 'tools', 'preview');
+const BASES = [PREVIEW, ROOT];
 const PORT = process.env.PORT || 3000;
 
 const CONTENT_TYPES = {
@@ -45,10 +49,12 @@ function resolveFile(urlPath) {
       candidates.push(path.join(withoutSlash, 'index.html'));
     }
   }
-  for (const candidate of candidates) {
-    const filePath = path.join(ROOT, candidate);
-    if (filePath.startsWith(ROOT) && fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
-      return filePath;
+  for (const base of BASES) {
+    for (const candidate of candidates) {
+      const filePath = path.join(base, candidate);
+      if (filePath.startsWith(base) && fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+        return filePath;
+      }
     }
   }
   return null;

@@ -45,11 +45,15 @@ belongs here is blocks, scripts, styles, icons, and placeholder assets.
   Fonts — see `fonts/README.md`).
 - `docs/` — component and page registries; the source of truth for what's built
   and where it's used. Check both before adding or changing a component.
-- `tools/` — local dev tooling only (Lighthouse runner, visual-diff runner).
-  Excluded from publishing via `.hlxignore`.
+- `tools/` — local dev tooling only (page generator, static dev server, DA push,
+  Lighthouse runner, visual-diff runner). Excluded from publishing via
+  `.hlxignore`.
 - Page routes and the `nav`/`footer` content fragments the `header`/`footer`
   blocks fetch (`/nav.plain.html`, `/footer.plain.html`) are DA documents, not
-  files in this repo.
+  files in this repo. `npm start` runs `tools/build-pages.mjs` first to emit them
+  into the gitignored `tools/preview/` build directory so the dev server has
+  something to serve, and `tools/da-push.mjs` is what pushes them to DA. The only
+  HTML this repo versions is `head.html` and `404.html`.
 
 ## Reference → implementation mapping (not everything is a block)
 
