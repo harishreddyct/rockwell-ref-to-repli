@@ -33,7 +33,8 @@ belongs here is blocks, scripts, styles, icons, and placeholder assets.
 - `scripts/delayed.js` — deferred, non-critical JS loaded after the page is
   interactive (currently empty — no analytics/tracking is wired in).
 - `styles/styles.css` — global mobile-first styles needed for first paint.
-- `styles/fonts.css` — font notes; the webfont (Barlow) is linked in `head.html`.
+- `styles/fonts.css` — `@font-face` rules for the self-hosted Barlow webfont
+  (files in `fonts/`); this stylesheet is linked in `head.html`.
 - `styles/lazy-styles.css` — below-the-fold styling, fetched by `scripts.js`.
 - `blocks/{name}/{name}.js` + `{name}.css` — one folder per block. A block is
   authored in content as `<div class="{name}">…</div>`; `scripts.js` decorates
@@ -41,8 +42,9 @@ belongs here is blocks, scripts, styles, icons, and placeholder assets.
 - `icons/` — small UI SVGs (chevrons, search, social, menu). Content imagery
   lives in `images/`, never mixed into this folder.
 - `images/` — placeholder content imagery (generated SVG placeholders).
-- `fonts/` — vendored webfont files (currently empty; Barlow loads from Google
-  Fonts — see `fonts/README.md`).
+- `fonts/` — vendored webfont files: self-hosted Barlow (`.woff2`, latin
+  subset, weights 400/500/700). Two primary weights are preloaded in
+  `head.html`; no external Google Fonts request — see `fonts/README.md`.
 - `docs/` — component and page registries; the source of truth for what's built
   and where it's used. Check both before adding or changing a component.
 - `tools/` — local dev tooling only (page generator, static dev server, DA push,

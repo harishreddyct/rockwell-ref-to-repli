@@ -14,7 +14,8 @@ reference-to-implementation mapping stays legible.
 - **Design tokens** measured from `site.bundle.css`: brand blue `#003e7e`,
   action blue `#1968b3` (hover `#0053a1`), orange accent `#f58025`, charcoal
   `#2d2d2d`, black `#1a1a1a`, fog `#efefef`, platinum `#e5e6e9`, border `#ccc`.
-  Type family: **Barlow** (Regular 400 / Medium 500 / Bold 700).
+  Type family: **Barlow** (Regular 400 / Medium 500 / Bold 700), self-hosted
+  from `fonts/` (`.woff2`, latin subset) via `@font-face` in `styles/fonts.css`.
 - **Reference breakpoints** are 768/1024/1201px; per the skill these are mapped
   onto this project's fixed 768/960/1200 mobile-first scale. Note the middle tier
   is the one real divergence: between 960px and 1023px this build shows its

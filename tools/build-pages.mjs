@@ -57,10 +57,9 @@ function pageShell({ title, description, image, main }) {
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/styles/styles.css" as="style">
   <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="preload" href="/fonts/Barlow-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/Barlow-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles/fonts.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&display=swap">
   <script src="/scripts/aem.js" type="module"></script>
   <script src="/scripts/scripts.js" type="module"></script>
 </head>

@@ -13,6 +13,7 @@ import { chromium } from 'playwright';
 import { mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { waitForFonts } from '../playwright-helpers.mjs';
 
 const OUT = join(dirname(fileURLToPath(import.meta.url)), 'output');
 
@@ -49,7 +50,8 @@ async function shoot() {
         const url = `${baseUrl}${route}`;
         try {
           await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
-          await page.waitForTimeout(500);
+          await waitForFonts(page);
+          await page.waitForTimeout(200);
           const slug = route === '/' ? 'home' : route.replace(/\//g, '_').replace(/^_/, '');
           const file = join(OUT, `${slug}_${width}.png`);
           await page.screenshot({ path: file, fullPage: true });

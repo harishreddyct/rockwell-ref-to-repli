@@ -1,8 +1,33 @@
 /*
  * Fonts. The reference ships a licensed "Barlow" webfont family
  * (BarlowRegular/Medium/Bold, measured directly from site.bundle.css's
- * @font-face rules). Barlow is an open-license Google Font, so it's loaded
- * from Google Fonts (linked in head.html rather than @import'd here, so
- * first paint doesn't wait on this file's own round-trip) with the same
- * weights the reference uses (400 / 500 / 700). See docs/component-registry.md.
+ * @font-face rules). Barlow is an open-license Google Font, self-hosted here
+ * (latin subset .woff2 files in /fonts) rather than loaded from the Google
+ * Fonts CDN — this removes an external round-trip so first paint and webfont
+ * swap are same-origin and deterministic (no FOUT/fallback flash in tests).
+ * Weights match the reference: 400 / 500 / 700. See docs/component-registry.md.
  */
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('/fonts/Barlow-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('/fonts/Barlow-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('/fonts/Barlow-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
