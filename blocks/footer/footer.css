@@ -161,6 +161,11 @@ footer .footer-bottom p a {
     display: none;
   }
 
+  /* force details content visible on desktop regardless of open state */
+  footer .footer-col ul {
+    display: block !important;
+  }
+
   footer .footer-bottom {
     flex-flow: row wrap;
     align-items: center;

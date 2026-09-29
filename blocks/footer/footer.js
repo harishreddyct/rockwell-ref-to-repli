@@ -16,7 +16,7 @@ async function fetchFooter() {
 
 /**
  * Groups each heading and its following list into a .footer-col wrapped in
- * <details><summary> for mobile/tablet accordion behavior (open by default).
+ * <details><summary> for mobile/tablet accordion behavior (closed by default).
  */
 function buildColumns(source) {
   const cols = document.createElement('div');
@@ -27,7 +27,7 @@ function buildColumns(source) {
     const next = h.nextElementSibling;
     const details = document.createElement('details');
     details.className = 'footer-col';
-    details.open = true; // open by default; CSS forces open on desktop
+    // closed by default on mobile/tablet; CSS forces open on desktop
 
     const summary = document.createElement('summary');
     summary.append(h);
